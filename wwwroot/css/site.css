@@ -1,0 +1,477 @@
+/* ===== Variables ===== */
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 20 14.3% 4.1%;
+        --card: 0 0% 100%;
+        --card-foreground: 20 14.3% 4.1%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 20 14.3% 4.1%;
+        --primary: 24 9.8% 10%;
+        --primary-foreground: 60 9.1% 97.8%;
+        --secondary: 60 4.8% 95.9%;
+        --secondary-foreground: 24 9.8% 10%;
+        --muted: 60 4.8% 95.9%;
+        --muted-foreground: 25 5.3% 44.7%;
+        --accent: 60 4.8% 95.9%;
+        --accent-foreground: 24 9.8% 10%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 60 9.1% 97.8%;
+        --border: 20 5.9% 90%;
+        --input: 20 5.9% 90%;
+        --ring: 20 14.3% 4.1%;
+        --radius: 0.5rem;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --brand: 173 58% 39%;
+    }
+
+    .dark {
+        --background: 20 14.3% 4.1%;
+        --foreground: 60 9.1% 97.8%;
+        --card: 20 14.3% 4.1%;
+        --card-foreground: 60 9.1% 97.8%;
+        --popover: 20 14.3% 4.1%;
+        --popover-foreground: 60 9.1% 97.8%;
+        --primary: 60 9.1% 97.8%;
+        --primary-foreground: 24 9.8% 10%;
+        --secondary: 12 6.5% 15.1%;
+        --secondary-foreground: 60 9.1% 97.8%;
+        --muted: 12 6.5% 15.1%;
+        --muted-foreground: 24 5.4% 63.9%;
+        --accent: 12 6.5% 15.1%;
+        --accent-foreground: 60 9.1% 97.8%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 60 9.1% 97.8%;
+        --border: 12 6.5% 15.1%;
+        --input: 12 6.5% 15.1%;
+        --ring: 24 5.7% 82.9%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+        --brand: 160 60% 45%;
+    }
+}
+
+/* ===== Base Styles ===== */
+html, body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ===== Layout ===== */
+.homepage-main {
+    min-height: 100%;
+    padding: 2rem 0;
+    max-height: 100%;
+    margin-bottom: 32px;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 280px);
+    padding: 2rem 0;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ===== Navigation ===== */
+.navbar {
+    background-color: hsl(var(--card));
+    border-bottom: 1px solid hsl(var(--border));
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: hsl(var(--brand)) !important;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+}
+
+    .navbar-brand:hover {
+        background: hsl(var(--muted));
+    }
+
+.nav-link {
+    color: hsl(var(--foreground)) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease-in-out;
+    border-radius: var(--radius);
+}
+
+    .nav-link:hover, .nav-link.active {
+        color: hsl(var(--primary)) !important;
+        background-color: hsl(var(--accent));
+    }
+
+/* ===== Footer ===== */
+.footer {
+    position: absolute;
+    bottom: 0;
+    background-color: hsl(var(--card));
+    border-top: 1px solid hsl(var(--border));
+    color: hsl(var(--muted-foreground));
+}
+
+/* ===== Typography ===== */
+.text-title-subtle {
+    color: hsl(var(--chart-3));
+    opacity: 80%;
+}
+
+.display-4 {
+    font-weight: 600;
+    color: hsl(var(--primary));
+}
+
+.lead {
+    color: hsl(var(--muted-foreground));
+}
+
+/* ===== Buttons ===== */
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+    border-radius: var(--radius);
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: hsl(var(--primary)) !important;
+    color: hsl(var(--primary-foreground)) !important;
+    border: none;
+    font-weight: 600;
+}
+
+    .btn-primary:hover {
+        background-color: hsl(var(--primary)) !important;
+        opacity: 95% !important;
+        color: hsl(var(--background)) !important;
+    }
+
+.btn-my-navbar {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: none;
+    font-weight: 600;
+}
+
+    .btn-my-navbar:hover {
+        background-color: hsl(var(--primary));
+        opacity: 95% !important;
+        color: hsl(var(--background));
+    }
+
+.btn-my-navbar-s {
+    background-color: hsl(var(--brand));
+    color: hsl(var(--primary-foreground));
+    border: none;
+    font-weight: 600;
+}
+
+    .btn-my-navbar-s:hover {
+        background-color: hsl(var(--brand));
+        opacity: 95% !important;
+        color: hsl(var(--background));
+    }
+
+.btn-success {
+    background-color: hsl(var(--chart-2));
+    border-color: hsl(var(--chart-2));
+    color: hsl(var(--background));
+    font-weight: 600;
+}
+
+    .btn-success:hover {
+        background-color: hsl(var(--chart-2));
+        border-color: hsl(var(--chart-2));
+        filter: brightness(90%);
+    }
+
+/* ===== Cards ===== */
+.cardMain {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+    .cardMain:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+.card {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border: 1px solid hsl(var(--border));
+}
+
+/* ===== Theme Toggle ===== */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+    .theme-toggle:hover {
+        background: hsl(var(--muted));
+    }
+
+    .theme-toggle svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: hsl(var(--primary));
+    }
+
+/* ===== Todo Cards ===== */
+.todo-card {
+    display: flex;
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-status {
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: hsl(var(--card));
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+}
+
+.todo-card.new .todo-status {
+    background-color: hsl(var(--chart-1));
+    min-width: 64px;
+}
+
+.todo-card.started .todo-status {
+    min-width: 64px;
+    background-color: hsl(var(--chart-3));
+}
+
+.todo-card.finished .todo-status {
+    background-color: hsl(var(--chart-2));
+    min-width: 64px;
+}
+
+.todo-content {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.todo-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+    padding: 10px;
+}
+
+.todo-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.todo-due-date {
+    font-size: 0.9rem;
+    color: hsl(var(--muted-foreground));
+    padding: 10px;
+}
+
+.todo-description {
+    font-size: 0.95rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+    padding: 10px;
+}
+
+.todo-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.todo-progress-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.todo-delete-button {
+    margin-left: auto;
+}
+
+/* ===== Todo Buttons ===== */
+.todo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: var(--radius);
+    transition: all 0.2s ease-in-out;
+    border: none;
+    box-shadow: none;
+    min-width: 160px;
+}
+
+.todo-btn-sm {
+    font-size: 0.95rem;
+    width: 125px;
+    height: 45px;
+}
+
+.todo-btn-outline-primary {
+    background-color: hsl(var(--chart-3));
+    color: hsl(var(--background));
+}
+
+    .todo-btn-outline-primary:hover {
+        filter: brightness(90%);
+    }
+
+.todo-btn-outline-success {
+    background-color: hsl(var(--chart-2));
+    color: hsl(var(--background));
+}
+
+    .todo-btn-outline-success:hover {
+        filter: brightness(90%);
+    }
+
+.todo-btn-outline-danger {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--foreground-primary));
+}
+
+    .todo-btn-outline-danger:hover {
+        filter: brightness(90%);
+    }
+
+.todo-btn-secondary {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+}
+
+    .todo-btn-secondary:hover {
+        filter: brightness(90%);
+    }
+
+.todo-btn-danger {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--primary));
+}
+
+    .todo-btn-danger:hover {
+        filter: brightness(90%);
+    }
+
+.todo-btn-link {
+    color: hsl(var(--primary));
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    width: auto;
+    max-width: none;
+}
+
+    .todo-btn-link:hover {
+        opacity: 0.7;
+    }
+
+/* ===== Utilities ===== */
+.pt-6, .py-6 {
+    padding-top: 5rem !important;
+}
+
+.pr-6, .px-6 {
+    padding-right: 5rem !important;
+}
+
+.pb-6, .py-6 {
+    padding-bottom: 5rem !important;
+}
+
+.pl-6, .px-6 {
+    padding-left: 5rem !important;
+}
+
+.mt-6, .my-6 {
+    margin-top: 5rem !important;
+}
+
+.mr-6, .mx-6 {
+    margin-right: 5rem !important;
+}
+
+.mb-6, .my-6 {
+    margin-bottom: 5rem !important;
+}
+
+.ml-6, .mx-6 {
+    margin-left: 5rem !important;
+}
+
+/* ===== Form Styles ===== */
+.text-danger ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+    .text-danger ul li {
+        padding-left: 0;
+    }
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 767.98px) {
+    .col-md-6 {
+        width: 100%;
+    }
+}
+
+

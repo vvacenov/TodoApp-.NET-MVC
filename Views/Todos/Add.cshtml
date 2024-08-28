@@ -1,0 +1,62 @@
+﻿@model TodoApp.Models.Todos.Todo
+@{
+    ViewData["Title"] = "Add Todo";
+    var statuses = ViewBag.Statuses as List<TodoApp.Models.Todos.Status> ?? new List<TodoApp.Models.Todos.Status>();
+}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+          <h3 class="text-center mb-4">Add a Todo</h3>
+
+          <form asp-action="Add" method="post">
+            <div class="mb-3">
+              <label asp-for="Title" class="form-label">Title</label>
+
+              <input
+                asp-for="Title"
+                class="form-control"
+                placeholder="Enter a short task title (up to 60 characters long)"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label asp-for="Description" class="form-label"
+                >Description</label>
+
+              <textarea
+                asp-for="Description"
+                class="form-control"
+                placeholder="Enter task description (up to 600 characters)"
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label asp-for="DueDate" class="form-label">Due Date</label>
+
+              <input asp-for="DueDate" class="form-control" type="date" />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Create</button>
+
+            <div
+              asp-validation-summary="All"
+              class="text-danger mb-3 mt-3"
+            ></div>
+          </form>
+        </div>
+
+        <div class="card-footer bg-transparent border-0 text-center py-3">
+          <a asp-action="Index" class="small">Back to List</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+@section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+}

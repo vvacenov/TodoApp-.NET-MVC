@@ -1,0 +1,21 @@
+﻿@model TodoApp.Models.ErrorViewModel
+
+<div class="page-wrapper">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm my-5">
+                <div class="card-body text-center p-5">
+                    <h1 class="display-4 text-danger">Oops, something went wrong!</h1>
+                    <p class="lead">@Model.ErrorMessage</p>
+                    @if (!string.IsNullOrEmpty(Model.ErrorDetails))
+                    {
+                            <p class="text-muted">@Model.ErrorDetails</p>
+                    }
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-primary mt-4">Return to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>

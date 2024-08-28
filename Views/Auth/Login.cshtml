@@ -1,0 +1,57 @@
+﻿@model TodoApp.Models.Auth.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+<div class="page-wrapper">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">Sign in to your account</h2>
+
+                    <form asp-action="Login" method="post">
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="UserName" class="form-label">Username</label>
+                            <input asp-for="UserName" class="form-control" placeholder="Enter your username" />
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <input asp-for="Password" type="password" class="form-control" id="passwordInput" placeholder="Enter your password" />
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-2">Sign in</button>
+                    </form>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center py-3">
+                    <span class="small">Don't have an account? <a asp-action="Registration" asp-controller="Auth">Register here</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+        <script>
+            document.getElementById('togglePassword').addEventListener('click', function () {
+                const passwordInput = document.getElementById('passwordInput');
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+
+                const icon = this.querySelector('i');
+                icon.classList.toggle('bi-eye');
+                icon.classList.toggle('bi-eye-slash');
+            });
+        </script>
+}

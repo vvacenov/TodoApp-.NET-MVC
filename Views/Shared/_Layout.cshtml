@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TodoApp.Models.Auth;
+@inject SignInManager<UserAccountModel> SignInManager
+
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TodoApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TodoApp.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script>
+
+        //treba osigurat da se tema učita prije stranice
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light shadow-custom">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 12L9 23L4 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>TodoApp</span>
+                </a>  
+           <div class="d-flex" style="gap: 10px">     
+           
+               
+               @if (SignInManager.IsSignedIn(User))
+                    {                                             
+                        @if (!Context.Request.Path.StartsWithSegments("/Todos"))
+                        {
+                                 <a asp-controller="Todos" asp-action="Index" method="get">
+                                     <button class="btn btn-my-navbar-s btn-lg w-100 py-2">Go to Todo's</button>
+                                  </a>    
+                        }
+                        <form asp-controller="Auth" asp-action="Logout" method="post">
+                                     <button type="submit" class="btn btn-my-navbar btn-lg w-100 py-2">Logout</button>
+                        </form>                    
+
+                    }
+                    <button id="themeToggle" class="theme-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button> </div>
+                                
+            </div>
+        </nav>
+    </header>
+    <main class="homepage-main">
+        @RenderBody()
+        
+    </main>
+     <footer class="footer">
+        <div class="container text-center">
+            <span>&copy; 2024 - TodoApp - Vjekoslav Vacenovski</span>
+        </div>
+    </footer>
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>  
+    <script src="~/js/theme.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

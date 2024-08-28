@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center mb-1">
+      <h1 class="display-4 mb-4">Welcome to TodoApp</h1>
+      <p class="lead mb-6">
+        Organize your tasks, boost your productivity, and achieve your goals
+        with TodoApp.
+      </p>
+      <div class="d-flex justify-content-center">
+        <div class="content-wrapper">
+          <div class="d-flex btn-container gap-3 justify-content-center mb-4">
+            <a
+              asp-controller="Auth"
+              asp-action="Login"
+              class="btn btn-primary btn-lg"
+              >Login
+            </a>
+            <a
+              asp-controller="Auth"
+              asp-action="Registration"
+              class="btn btn-success btn-lg"
+              >Register
+            </a>
+          </div>
+          <span>OR</span>
+          <div class="mt-4 mb-5 w-100">
+            <a
+              asp-controller="Auth"
+              asp-action="GoogleLogin"
+              class="btn btn-primary btn-lg"
+            >
+              <i class="bi bi-google me-2"></i>Continue with Google
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-6">
+    <div class="col-md-4 mb-4">
+      <div class="cardMain h-100">
+        <div class="card-body text-center">
+          <i
+            class="bi bi-list-check fs-1 mb-2"
+            style="color: hsl(var(--brand))"
+          ></i>
+          <p class="card-text">
+            Create and manage your tasks with ease. Set due dates and track the
+            status.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="cardMain h-100">
+        <div class="card-body text-center">
+          <i
+            class="bi bi-graph-up fs-1 mb-2"
+            style="color: hsl(var(--brand))"
+          ></i>
+          <p class="card-text">
+            Monitor your progress and stay on top of your goals.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="cardMain h-100">
+        <div class="card-body text-center">
+          <i
+            class="bi bi-trophy fs-1 mb-2"
+            style="color: hsl(var(--brand))"
+          ></i>
+          <p class="card-text">
+            Accomplish more by breaking down big goals into manageable tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
